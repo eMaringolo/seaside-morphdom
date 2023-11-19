@@ -6,6 +6,7 @@ Class {
 
 { #category : #baselines }
 BaselineOfJQueryMorphdom >> baseline: spec [
+
 	<baseline>
 	spec
 		for: #common
@@ -17,14 +18,14 @@ BaselineOfJQueryMorphdom >> baseline: spec [
 					with: [ spec requires: #('JQuery-Morphdom-Core') ].
 			spec
 				group: 'Core' with: #('JQuery-Morphdom-Core');
-				group: 'Examples'
-					with: #('JQuery-Morphdom-Core' 'JQuery-Morphdom-Examples');
-				group: 'all' with: #('Tests' 'Examples');
+				group: 'Examples' with: #('JQuery-Morphdom-Core' 'JQuery-Morphdom-Examples');
+				group: 'all' with: #('Core' 'Examples');
 				group: 'default' with: #('all') ]
 ]
 
 { #category : #baselines }
 BaselineOfJQueryMorphdom >> seaside: spec [
+
 	spec
 		baseline: 'Seaside3'
 		with: [ spec

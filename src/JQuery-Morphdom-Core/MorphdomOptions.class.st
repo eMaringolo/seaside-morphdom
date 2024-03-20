@@ -47,6 +47,14 @@ MorphdomOptions class >> eventOptions [
 ]
 
 { #category : #options }
+MorphdomOptions >> addChild: aJsFunction [
+	"Called when adding a new child to a parent. By default, parentNode.appendChild(childNode) is
+	invoked. Use this callback to customize how a new child is added."
+	
+	self optionAt: 'addChild' put: aJsFunction
+]
+
+{ #category : #options }
 MorphdomOptions >> beBlazingFast [
 
 	self onBeforeElUpdated: (JSStream on: 'function(fromEl, toEl) {
@@ -143,4 +151,13 @@ MorphdomOptions >> onNodeDiscarded: aJSFunction [
 MorphdomOptions >> optionAt: aString put: aJSFunction [ 
 	
 	options at: aString put: aJSFunction 
+]
+
+{ #category : #options }
+MorphdomOptions >> skipFromChildren: aJsFunction [
+	"Called when indexing a the `fromEl` tree. False by default. Return `true` to skip indexing the 
+	from tree, which will keep current items in place after patch rather than removing them when 
+	not found in the `toEl`"
+	
+	self optionAt: 'skipFromChildren' put: aJsFunction
 ]

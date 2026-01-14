@@ -89,10 +89,10 @@ MorphdomOptions >> initialize [
 ]
 
 { #category : #printing }
-MorphdomOptions >> javascriptOn: aStream [
-	"Generate the JavaScript string of the receiver."
+MorphdomOptions >> javascriptOn: aRenderer [
+	"Generate the JavaScript code from the receiver by delegating to the options dictionary."
 	
-	JSStream encodeDictionary: options on: aStream
+	options javascriptOn: aRenderer
 ]
 
 { #category : #options }
